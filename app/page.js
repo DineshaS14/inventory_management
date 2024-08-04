@@ -17,13 +17,32 @@ export default function Home() {
     const snapshot = query(collection(firestore, 'inventory')) // inventory is the name on firebase database name.
     const docs = await getDocs(snapshot)
     const inventoryList = []
+    // every doc, we want to add it to inventory List
     docs.forEach((doc) => {
-         
+         inventoryList.push({
+          name: doc.id,
+          ...doc.data(),
+         })
     })
+    setInventory(inventoryList)
   }
+  // runs at the beginning of page load, and that is it
+  useEffect(() => {
+    updateInventory()
+  }, [])
   return (
     <Box>
       <Typography variant="h1">Inventory Management</Typography>
+      {
+        inventory.forEach((item) => {
+          return (
+            <>
+            {item.name}
+            {item.count}
+            </>
+          )
+        })
+      }
     </Box>
     )
 }
