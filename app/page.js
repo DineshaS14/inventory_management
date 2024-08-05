@@ -5,6 +5,7 @@ import {firestore} from '@/firebase';
 import {Box, Modal, Typography, Stack, TextField, Button, List, ListItem, ListItemText, IconButton} from '@mui/material';
 import {collection, getDocs, query, doc, getDoc, setDoc, deleteDoc} from 'firebase/firestore';
 
+
 export default function Home() {
   const [inventory, setInventory] = useState([])
   const [open, setOpen] = useState(false)
@@ -163,7 +164,7 @@ export default function Home() {
                   >
                   Add Item
                 </Button>
-                <Button variant="outlined" startIcon={<DeleteIcon />} color="error"
+                <Button variant="outlined" color="error"
                   onClick={() => {
                     removeItem(name)
                   }} // pmClick EventListener for Remove Item Button
