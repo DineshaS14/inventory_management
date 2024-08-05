@@ -68,8 +68,8 @@ export default function Home() {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  
   return (
-    return (
       <Box
         width="100vw"
         height="100vh"
@@ -203,5 +203,5 @@ export default function Home() {
             ))}
         </Stack>
       </Box>
-    );
+  );
 }
