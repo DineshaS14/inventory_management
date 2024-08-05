@@ -11,7 +11,7 @@ export default function Home() {
   const [inventory, setInventory] = useState([]);
   const [open, setOpen] = useState(false);
   const [itemName, setItemName] = useState(''); // Initial state when the application opens
-
+  const [searchTerm, setSearchTerm] = useState(''); // State for search input
   // Updating from Firebase
   // Making async to ensure fetching code is non-blocking
   const updateInventory = async () => {
