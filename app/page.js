@@ -161,7 +161,7 @@ export default function Home() {
             <Typography 
               variant="h5" 
               color="#333" 
-              textAlign="center"
+              textAlign="right"
               sx={{ 
                 fontFamily: 'Arial, sans-serif', 
                 fontWeight: 'bold' 
