@@ -154,14 +154,22 @@ export default function Home() {
             bgcolor="#f0f0f0"
             padding={5}
           >
-            <Stack direction="row" spacing={2} alignItems="center">
-              <Typography variant="h3" color="#333" textAlign="center">
+          <Stack direction="row" spacing={2} alignItems="center">
+            <Typography variant="h3" color="#333" textAlign="center">
                 {name.charAt(0).toUpperCase() + name.slice(1)}
+            </Typography>
+            <Typography 
+              variant="h5" 
+              color="#333" 
+              textAlign="center"
+              sx={{ 
+                fontFamily: 'Arial, sans-serif', 
+                fontWeight: 'bold' 
+              }}
+              >
+              Quantity: {quantity}
               </Typography>
-              <Typography variant="h3" color="#333" textAlign="center">
-                Quantity: {quantity}
-              </Typography>
-            </Stack>
+          </Stack>
             <Stack direction="row" spacing={2}>
               <Button
                 variant="contained"
