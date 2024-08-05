@@ -1,4 +1,18 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# My Project
+
+This is a brief description of my project.
+
+## Demo
+
+Watch the demo video:
+
+[![Watch the video](https://img.youtube.com/vi/cMVzpIbkSbQ/0.jpg)](https://youtu.be/cMVzpIbkSbQ?si=HOUZiPg1zo8SGM6L)
+
+## Features
+
+- Feature 1
+- Feature 2
 
 ## Getting Started
 
