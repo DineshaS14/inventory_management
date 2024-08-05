@@ -26,6 +26,33 @@ export default function Home() {
     })
     setInventory(inventoryList)
   }
+  // add an Item.
+  const addItem = async (item) => {
+    const docRef = doc(collection(firestore, 'inventory'), item)
+    const docSnap = await getDoc(docRef)
+    if(docSnap.exists()){
+      const { quantity } = docSnap.data()
+      await setDoc(docRef, {quantity : quantity + 1})
+    } else {
+      await setDoc(docRef, setDoc(docRef, {quantity: 1}))
+    } // if-else
+    await updateInventory()
+  } // addItem
+  // remove an Item.
+  const removeItem = async (item) => {
+    const docRef = doc(collection(firestore, 'inventory'), item)
+    const docSnap = await getDoc(docRef)
+    if (docSnap.exists()){
+      const {quantity} = docSnap.data()
+      if(quantity == 1) {
+        await deleteDoc(docRef)
+      } else {
+        await setDoc(docRef, {quantity: quantity - 1})
+      } // if-else
+    } // if
+    await updateInventory()
+  } // removeItem
+
   // runs at the beginning of page load, and that is it
   useEffect(() => {
     updateInventory()
