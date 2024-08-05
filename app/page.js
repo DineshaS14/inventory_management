@@ -44,6 +44,7 @@ export default function Home() {
     await updateInventory();
   };
 
+  
   // Remove an item from the inventory
   const removeItem = async (item) => {
     const docRef = doc(collection(firestore, 'inventory'), item);
