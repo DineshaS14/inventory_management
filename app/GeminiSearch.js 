@@ -1,0 +1,45 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
+const gemini = new GoogleGenerativeAI('AIzaSyDnHoqWESoueZV7ct7B4Ej7dmvo2RT_7x0');
+
+const GeminiSearch = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [recipes, setRecipes] = useState([]);
+
+  const searchRecipes = async (query) => {
+    const prompt = `Find recipes using ${query}`;
+    const result = await gemini.generateContent(prompt);
+    const recipes = result.response.text();
+    return recipes;
+  };
+
+  const handleSearch = async () => {
+    const inventoryItems = inventory.map((item) => item.name);
+    const query = inventoryItems.join(', ');
+    const recipes = await searchRecipes(query);
+    setRecipes(recipes);
+  };
+
+  return (
+    <div>
+      <Stack direction="row" spacing={2}>
+        <TextField
+          variant="outlined"
+          placeholder="Search for recipes"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <Button variant="contained" onClick={handleSearch}>
+          Search Recipes
+        </Button>
+      </Stack>
+      <ul>
+        {recipes.map((recipe, index) => (
+          <li key={index}>{recipe}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default GeminiSearch;

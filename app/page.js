@@ -5,6 +5,7 @@ import { firestore } from '@/firebase';
 import { Box, Modal, Typography, Stack, TextField, Button, List, ListItem, ListItemText, IconButton } from '@mui/material';
 import { collection, getDocs, query, doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
 import DeleteIcon from '@mui/icons-material/Delete'; // Correctly import DeleteIcon
+import GeminiSearch from './GeminiSearch';
 
 export default function Home() {
   // State variables for managing inventory, modal open state, and item name input
@@ -203,6 +204,11 @@ export default function Home() {
               </Box>
             ))}
         </Stack>
+        <div>
+      {/* ... */}
+      <GeminiSearch />
+    </div>
       </Box>
+      
   );
 }
